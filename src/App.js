@@ -1,11 +1,14 @@
 
 import './App.css';
+import BTN from './components/button/Button';
 
 function App() {
   return (
     <div className="App">
      
-       <h1>testing</h1>
+      <BTN  onClick={() => {
+        alert('clicked');
+      }}></BTN>
 
      </div>
   );
