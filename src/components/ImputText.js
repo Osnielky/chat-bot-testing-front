@@ -7,14 +7,14 @@ import React, { useState } from 'react';
 // Optional: CSS for styling
 //import './TextField.css';
 
-function ImputText({ label, disabled, placeholder = '', onChange, value, type = 'text' }) {
-    const [inputValue, setInputValue] = useState(value || '');
+function ImputText({ label, disabled, placeholder = '', onTextChange, value, type = 'text' }) {
+    
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value);
-        if (onChange) {
-            onChange(e.target.value);
-            console.log(inputValue);
+       
+        if (onTextChange) {
+            onTextChange(e.target.value);
+           
         }
     };
 
@@ -24,10 +24,10 @@ function ImputText({ label, disabled, placeholder = '', onChange, value, type = 
             type={type}
             label={label}
             multiline
-            rows={8}
+            rows={10}
             className="text-field"
             placeholder={placeholder}
-            value={inputValue}
+            value={value}
             onChange={handleInputChange}
         />
     );
