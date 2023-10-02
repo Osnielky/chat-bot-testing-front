@@ -7,7 +7,8 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import BTN from './components/button/Button';
 import ImputText from './components/ImputText';
 import React, { useState } from 'react';
-import ChatGPTRequest from './GPT-conn';
+import handleAsk from './GPT-conn';
+import { ArrowBackIosNewTwoTone } from '@mui/icons-material';
 
 function App() {
 
@@ -18,9 +19,10 @@ function App() {
     setTextValue(value);
   };
 
-  const sendTextToChat = () => {
-const response = ChatGPTRequest('First' );
-    setDisplayedText(response);
+  const sendTextToChat = async () => {
+    const response = await handleAsk('Name the biggest city in the world' );
+    console.log(response)
+   // setDisplayedText(response);
   };
   const clearText = () => {
     setTextValue('');
